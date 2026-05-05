@@ -13,7 +13,7 @@ interface CheckInUseCaseRequest {
   userLongitude: number
 }
 
-interface CheckInUseResponse {
+interface CheckInUseCaseResponse {
   checkIn: CheckIn
 }
 
@@ -28,7 +28,7 @@ export class CheckInUseCase {
     gymId,
     userLatitude,
     userLongitude,
-  }: CheckInUseCaseRequest): Promise<CheckInUseResponse> {
+  }: CheckInUseCaseRequest): Promise<CheckInUseCaseResponse> {
     const gym = await this.gymsRepository.findById(gymId)
 
     if (!gym) {
@@ -49,7 +49,7 @@ export class CheckInUseCase {
       throw new MaxDistanceError()
     }
 
-    const checkInOnSameDay = await this.checkInsRepository.findByuserIdOnDate(
+    const checkInOnSameDay = await this.checkInsRepository.findByUserIdOnDate(
       userId,
       new Date(),
     )
