@@ -4,7 +4,7 @@
   "description": "GymPass style app.",
   "main": "index.js",
   "scripts": {
-    "start:dev": "tsx watch src/server.ts",
+    "dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
     "build": "tsup src --out-dir build",
     "test": "vitest run",
@@ -31,6 +31,7 @@
     "vitest": "4.1.2"
   },
   "dependencies": {
+    "@fastify/jwt": "10.0.0",
     "@prisma/client": "4.10.1",
     "bcrypt": "6.0.0",
     "dayjs": "1.11.20",
